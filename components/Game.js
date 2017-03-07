@@ -26,6 +26,11 @@ class Game extends React.Component {
   }
 
   handleClick (i, ev) {
+    ev.preventDefault();
+    this.setState({
+      board: this.state.board.map((token, index) => index === i ? this.state.turn : token),
+      turn: this.state.turn === 'X' ? 'O': 'X'
+    })
   }
 
   getWinner () {

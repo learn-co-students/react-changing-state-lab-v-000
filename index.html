@@ -5,6 +5,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/mocha/mocha.css">
+    <style>
+      .field {
+        display: block;
+        float: left;
+        width: 30%;
+        height: 60px;
+        margin: 10px 0;
+        padding: 0;
+      }
+      .field:disabled {
+        height: 60px; 
+        padding: 0;
+      }
+      .cf:before, .cf:after { content: " "; display: table; }
+      .cf:after { clear: both; }
+      .cf { *zoom : 1; }
+    </style>
   </head>
   <body>
     <main id="main">

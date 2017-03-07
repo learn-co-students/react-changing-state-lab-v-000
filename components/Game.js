@@ -33,7 +33,7 @@ class Game extends React.Component {
   }
 
   isComplete () {
-    let full = this.state.board.every(pos => { return pos === 'X' || pos === 'O'});
+    let full = this.state.board.every(pos => pos === 'X' || pos === 'O');
     return !!this.isWon() || full
   }
 

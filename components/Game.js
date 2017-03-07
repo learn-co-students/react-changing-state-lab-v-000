@@ -19,6 +19,10 @@ class Game extends React.Component {
   }
 
   handleReset (ev) {
+    ev.preventDefault();
+    this.setState({
+      board: this.state.board.map(i => null)
+    })
   }
 
   handleClick (i, ev) {
@@ -51,6 +55,7 @@ class Game extends React.Component {
         {this.isComplete() &&
           <Status winner={this.getWinner()} />
         }
+        <button className="game__reset" onClick={this.handleReset}>Reset Game</button>
       </div>
     );
   }

@@ -8,11 +8,10 @@ class Board extends React.Component {
     return (
       <div className="board">
         {
-          this.props.board.map((player, index) =>
+          this.props.board.map((player, i) =>
             <Field
-              onClick={onClick}
-              key={index}
-              id={index}
+              onClick={onClick.bind(null, i)}
+              key={i}
               player={player}
             />
           )

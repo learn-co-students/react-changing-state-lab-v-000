@@ -6,6 +6,7 @@ const solutions = require('./solutions');
 class Game extends React.Component {
   constructor (props) {
     super(props);
+
     this.state = {
       board: [null, null, null, null, null, null, null, null, null],
       turn: 'X'
@@ -16,23 +17,47 @@ class Game extends React.Component {
   }
 
   handleReset (ev) {
+    ev.preventDefault();
+    this.setState({
+      board: [null, null, null, null, null, null, null, null, null],
+      turn: 'X'
+    });
   }
 
   handleClick (i, ev) {
-    console.log(i.target);
-    console.log(ev.target.id);
+    ev.preventDefault();
+
+    const newBoard = this.state.board;
+    newBoard.splice(i, 1, this.state.turn);
+    const newTurn = this.state.turn === "X" ? "O" : "X";
+
+    this.setState({
+      board: newBoard,
+      turn: newTurn
+    })
   }
 
   getWinner () {
+    const results = solutions.map(
+      (solution) => solution.map((i) => this.state.board[i]).join('')
+    );
+    const row = results.find(
+      (result) => result === 'XXX' || result === 'OOO'
+    );
+    return row && row[0];
   }
 
   isComplete () {
+    return this.state.board.every(field => field);
   }
 
   render () {
+
     return (
       <div className="game">
-        < Board board={this.state.board} onClick={this.handleClick} />
+        <Board board={this.state.board} onClick={this.handleClick} />
+        { this.isComplete() ? <Status winner={this.getWinner()} /> : null }
+        <button className="game__reset" onClick={this.handleReset} >Reset</button>
       </div>
     );
   }

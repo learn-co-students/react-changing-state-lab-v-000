@@ -2,10 +2,10 @@ const React = require('react');
 
 class Field extends React.Component {
   render () {
-    const { player, onClick } = this.props;
+    const { player, onClick, id } = this.props;
+    const disabled = player !== null;
     return (
-      <button>
-      </button>
+      <button className="field" id={id} onClick={onClick} disabled={disabled} >{this.props.player || "Empty"}</button>
     );
   }
 }

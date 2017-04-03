@@ -6,7 +6,10 @@ const solutions = require('./solutions');
 class Game extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      board: [null, null, null, null, null, null, null, null, null],
+      turn: 'X'
+    };
 
     this.handleReset = this.handleReset.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -16,6 +19,8 @@ class Game extends React.Component {
   }
 
   handleClick (i, ev) {
+    console.log(i.target);
+    console.log(ev.target.id);
   }
 
   getWinner () {
@@ -26,7 +31,8 @@ class Game extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="game">
+        < Board board={this.state.board} onClick={this.handleClick} />
       </div>
     );
   }

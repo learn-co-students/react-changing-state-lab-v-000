@@ -57,17 +57,31 @@ export default class Game extends React.Component {
   }
 
   isWin() {
-    return (this.getWinner() != null);   
+    var winner = this.getWinner(); 
+    if (winner == "X" || winner == "O") { 
+      return true; 
+     }
+    return false; 
   }
 
   isComplete () {
-    const board = this.state.board; 
+    if (this.boardIsFull()) {
+      return true;  
+    }
+    if (this.isWin()) {
+      return true; 
+    } 
+    return false; 
+  }
+
+  boardIsFull() {
+    var board = this.state.board; 
     for (var i = 0; i < board.length; i++) {
       if (board[i] == null) {
         return false; 
       } 
     } 
-    return true; 
+    return true;  
   }
 
   render () {

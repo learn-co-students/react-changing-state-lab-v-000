@@ -1,10 +1,11 @@
 import React from 'react';
 
 export default class Field extends React.Component {
-  render () {
+  render () {    
     const { player, onClick } = this.props;
     return (
-      <button>
+      <button className='field' onClick={onClick} disabled={player ? true : false} >
+        {player}
       </button>
     );
   }

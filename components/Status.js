@@ -1,11 +1,14 @@
-import React from 'react';
+const React = require('react');
 
-export default class Status extends React.Component {
+class Status extends React.Component {
   render () {
     const { winner } = this.props;
     return (
-      <div>
+      <div className='status'>
+        <p>{this.props.winner ? this.props.winner + ' wins' : 'Tie'}</p>
       </div>
     );
   }
 }
+
+module.exports = Status;

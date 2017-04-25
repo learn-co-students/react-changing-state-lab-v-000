@@ -1,11 +1,15 @@
-import React from 'react';
+const React = require('react');
 
-export default class Field extends React.Component {
+class Field extends React.Component {
   render () {
     const { player, onClick } = this.props;
+
     return (
-      <button>
+      <button onClick={this.props.onClick} className='field' value={this.props.player} disabled={!!player} >
+        {this.props.player}
       </button>
     );
   }
 }
+
+module.exports = Field;

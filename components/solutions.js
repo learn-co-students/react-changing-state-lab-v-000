@@ -19,4 +19,4 @@ const solutions = [
   [2, 4, 6]
 ];
 
-export default solutions;
+module.exports = solutions;

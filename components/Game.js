@@ -6,7 +6,10 @@ import solutions from './solutions';
 export default class Game extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      board: [],
+      turn: ''
+    };
 
     this.handleReset = this.handleReset.bind(this);
     this.handleClick = this.handleClick.bind(this);

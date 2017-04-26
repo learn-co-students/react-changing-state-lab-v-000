@@ -7,8 +7,8 @@ export default class Game extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      board: [],
-      turn: ''
+      board: [null, null, null, null, null, null, null, null, null],
+      turn: 'X'
     };
 
     this.handleReset = this.handleReset.bind(this);
@@ -29,7 +29,10 @@ export default class Game extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='game'>
+        <Game>
+          <Status />
+        </Game>
       </div>
     );
   }

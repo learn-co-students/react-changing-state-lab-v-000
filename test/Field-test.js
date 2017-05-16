@@ -15,6 +15,7 @@ describe('<Field />', function () {
   });
 
   it('should enable button when there is no player prop', function () {
+    var temp = shallow(<Field />)
     expect(shallow(<Field />).prop('disabled')).toBe(false);
   });
 

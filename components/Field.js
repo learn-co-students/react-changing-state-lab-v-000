@@ -4,8 +4,7 @@ export default class Field extends React.Component {
   render () {
     const { player, onClick } = this.props;
     return (
-      <button>
-      </button>
+      <button className="field" disabled={!!player} onClick={onClick}>{player}</button>
     );
   }
 }
